@@ -6,12 +6,12 @@ i18next.addResourceBundle('fa', 'navigation', fa);
 
 const navigationConfig: NavigationConfig[] = [
   {
-    id: 'example-component',
-    title: 'Example',
-    translate: 'EXAMPLE',
+    id: 'home',
+    title: 'خانه',
+    // translate: 'home',
     type: 'item',
-    icon: 'heroicons-outline:star',
-    url: 'example',
+    // icon: 'heroicons-outline:star',
+    url: '',
   },
 ];
 

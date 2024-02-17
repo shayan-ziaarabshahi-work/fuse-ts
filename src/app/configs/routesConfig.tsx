@@ -6,16 +6,12 @@ import SignInConfig from '../main/sign-in/SignInConfig';
 import SignUpConfig from '../main/sign-up/SignUpConfig';
 import SignOutConfig from '../main/sign-out/SignOutConfig';
 import Error404Page from '../main/404/Error404Page';
-import ExampleConfig from '../main/example/ExampleConfig';
-import CKEditorConfig from '../main/ck-editor/CKEditorConfig';
 import { PageConfig, RouteConfig } from '@types-fuse/routes';
 
 const routeConfigs: PageConfig[] = [
-  ExampleConfig,
   SignOutConfig,
   SignInConfig,
   SignUpConfig,
-  CKEditorConfig,
 ];
 
 const mergedRoutes = FuseUtils.generateRoutesFromConfigs(routeConfigs, settingsConfig.defaultAuth);
@@ -23,7 +19,7 @@ const mergedRoutes = FuseUtils.generateRoutesFromConfigs(routeConfigs, settingsC
 const defaultRoutes: RouteConfig[] = [
   {
     path: '/',
-    element: <Navigate to="/example" />,
+    element: <Navigate to="/" />,
     auth: settingsConfig.defaultAuth,
   },
   {
