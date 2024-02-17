@@ -48,7 +48,7 @@ function Layout1(props) {
             <ToolbarLayout1 className={config.toolbar.style === 'fixed' && 'sticky top-0'} />
           )}
 
-          <DynamicBreadCrumbs />
+          {/* <DynamicBreadCrumbs /> */}
           <div className="sticky top-0 z-99">
             <SettingsPanel />
           </div>
