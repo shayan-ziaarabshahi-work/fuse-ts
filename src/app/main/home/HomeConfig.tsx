@@ -9,7 +9,7 @@ const HomeConfig = createPageConfig({
   },
   routes: [
     {
-      path: '',
+      path: 'home',
       children: [
         {
           element: <Home />,

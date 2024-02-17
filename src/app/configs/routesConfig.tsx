@@ -7,8 +7,10 @@ import SignUpConfig from '../main/sign-up/SignUpConfig';
 import SignOutConfig from '../main/sign-out/SignOutConfig';
 import Error404Page from '../main/404/Error404Page';
 import { PageConfig, RouteConfig } from '@types-fuse/routes';
+import HomeConfig from '../main/home/HomeConfig';
 
 const routeConfigs: PageConfig[] = [
+  HomeConfig,
   SignOutConfig,
   SignInConfig,
   SignUpConfig,
@@ -19,7 +21,7 @@ const mergedRoutes = FuseUtils.generateRoutesFromConfigs(routeConfigs, settingsC
 const defaultRoutes: RouteConfig[] = [
   {
     path: '/',
-    element: <Navigate to="/" />,
+    element: <Navigate to="/home" />,
     auth: settingsConfig.defaultAuth,
   },
   {
