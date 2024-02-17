@@ -12,8 +12,8 @@ import LeftSideLayout1 from './components/LeftSideLayout1';
 import NavbarWrapperLayout1 from './components/NavbarWrapperLayout1';
 import RightSideLayout1 from './components/RightSideLayout1';
 import ToolbarLayout1 from './components/ToolbarLayout1';
-import SettingsPanel from '../shared-components/SettingsPanel';
-import DynamicBreadCrumbs from 'app/shared-components/components/dynamic-bread-crumbs';
+// import SettingsPanel from '../shared-components/SettingsPanel';
+// import DynamicBreadCrumbs from 'app/shared-components/components/dynamic-bread-crumbs';
 
 const Root = styled('div')(({ theme, config }) => ({
   ...(config.mode === 'boxed' && {
@@ -49,9 +49,9 @@ function Layout1(props) {
           )}
 
           {/* <DynamicBreadCrumbs /> */}
-          <div className="sticky top-0 z-99">
+          {/* <div className="sticky top-0 z-99">
             <SettingsPanel />
-          </div>
+          </div> */}
 
           <div className="flex flex-col flex-auto min-h-0 relative z-10">
             <FuseDialog />
