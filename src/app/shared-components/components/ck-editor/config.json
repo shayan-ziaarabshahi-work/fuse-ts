@@ -1,0 +1,27 @@
+{
+  "toolbar": [
+    "heading",
+    "bold",
+    "italic",
+    "link",
+    "alignment",
+    "fontFamily",
+    "fontColor",
+    "fontBackgroundColor",
+    "fontSize",
+    "subscript",
+    "superscript",
+    "underline",
+    "specialCharacters",
+    "blockQuote",
+    "outdent",
+    "indent",
+    "bulletedList",
+    "numberedList",
+    "insertTable",
+    "imageInsert",
+    "mediaEmbed",
+    "undo",
+    "redo"
+  ]
+}

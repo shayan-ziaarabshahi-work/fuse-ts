@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "@fuse/*": ["./src/@fuse/*"],
+      "@types-fuse/*": ["./src/@types/*"],
+      "@history*": ["./src/@history"],
+      "@lodash": ["./src/@lodash"],
+      "@mock-api": ["./src/@mock-api"],
+      "app/store/*": ["./src/app/store/*"],
+      "app/shared-components/*": ["./src/app/shared-components/*"],
+      "app/configs/*": ["./src/app/configs/*"],
+      "app/AppContext": ["./src/app/AppContext"],
+      "app/theme-layouts/*": ["./src/app/theme-layouts/*"]
+    }
+  },
+  "include": ["src"]
+}
