@@ -1,22 +1,14 @@
 import * as React from "react";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
-import {
-  DataGrid,
-  GridColDef,
-  faIR,
-  GridActionsCellItem,
-  GridRowId,
-} from "@mui/x-data-grid";
+import { GridColDef, GridActionsCellItem, GridRowId } from "@mui/x-data-grid";
 import createCache from "@emotion/cache";
-import { CacheProvider } from "@emotion/react";
-import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import {
   Delete as DeleteIcon,
   Security as SecurityIcon,
   FileCopy as FileCopyIcon,
 } from "@mui/icons-material";
-import { Box } from "@mui/system";
+import Table from "src/app/shared-components/components/table";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -50,16 +42,6 @@ type Row = typeof initialRows[number];
 
 export default function DataGridRTL() {
   const [rows, setRows] = React.useState<Row[]>(initialRows);
-
-  /* theme */
-  const existingTheme = useTheme();
-  const theme = React.useMemo(
-    () =>
-      createTheme({}, faIR, existingTheme, {
-        direction: "rtl",
-      }),
-    [existingTheme]
-  );
 
   /* actions functions */
   const deleteUser = React.useCallback(
@@ -132,13 +114,5 @@ export default function DataGridRTL() {
     [deleteUser, toggleCitizenship, duplicateUser]
   );
 
-  return (
-    <CacheProvider value={cacheRtl}>
-      <ThemeProvider theme={theme}>
-        <Box dir="rtl" style={{ height: 400, width: "100%" }} className="">
-          <DataGrid rows={rows} columns={columns} />
-        </Box>
-      </ThemeProvider>
-    </CacheProvider>
-  );
+  return <Table rows={rows} columns={columns} />;
 }
