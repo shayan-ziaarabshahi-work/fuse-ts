@@ -2,29 +2,29 @@ import { lazy } from "react";
 import { authRoles } from "src/app/auth";
 import createPageConfig from "src/app/utils/handlers/createPageConfig";
 
-const Home = lazy(() => import("./Home"));
+const Secret = lazy(() => import("./Secret"));
 
-const HomeConfig = createPageConfig({
+const SecretConfig = createPageConfig({
   settings: {
     layout: {},
   },
-  auth: authRoles.user,
+  auth: authRoles.staff,
   routes: [
     {
-      path: "home",
+      path: "secret",
       children: [
         {
-          element: <Home />,
+          element: <Secret />,
           path: "",
           title: "home",
         },
         {
-          element: <Home />,
+          element: <Secret />,
           path: ":id",
           title: "id",
         },
         {
-          element: <Home />,
+          element: <Secret />,
           path: ":id/etc",
           title: "id-etc",
         },
@@ -33,4 +33,4 @@ const HomeConfig = createPageConfig({
   ],
 });
 
-export default HomeConfig;
+export default SecretConfig;

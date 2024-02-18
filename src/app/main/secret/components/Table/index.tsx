@@ -1,4 +1,4 @@
-import * as React from "react";
+import { Suspense, useMemo, useCallback, useState } from "react";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
 import { GridColDef, GridActionsCellItem, GridRowId } from "@mui/x-data-grid";
@@ -9,6 +9,10 @@ import {
   FileCopy as FileCopyIcon,
 } from "@mui/icons-material";
 import Table from "src/app/shared-components/components/table";
+import { authRoles } from "src/app/auth";
+import { useFuseSelector } from "src/app/utils/hooks/useStore";
+import { selectUser } from "app/store/userSlice";
+import useIsAuth from "src/app/auth/useIsAuth";
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -41,10 +45,12 @@ const initialRows = [
 type Row = typeof initialRows[number];
 
 export default function DataGridRTL() {
-  const [rows, setRows] = React.useState<Row[]>(initialRows);
+  
+  const isAuth = useIsAuth()
+  const [rows, setRows] = useState<Row[]>(initialRows);
 
   /* actions functions */
-  const deleteUser = React.useCallback(
+  const deleteUser = useCallback(
     (id: GridRowId) => () => {
       setTimeout(() => {
         setRows((prevRows) => prevRows.filter((row) => row.id !== id));
@@ -53,7 +59,7 @@ export default function DataGridRTL() {
     []
   );
 
-  const toggleCitizenship = React.useCallback(
+  const toggleCitizenship = useCallback(
     (id: GridRowId) => () => {
       setRows((prevRows) =>
         prevRows.map((row) =>
@@ -64,7 +70,7 @@ export default function DataGridRTL() {
     []
   );
 
-  const duplicateUser = React.useCallback(
+  const duplicateUser = useCallback(
     (id: GridRowId) => () => {
       setRows((prevRows) => {
         const rowToDuplicate = prevRows.find((row) => row.id === id)!;
@@ -75,7 +81,7 @@ export default function DataGridRTL() {
   );
 
   /* columns */
-  const columns = React.useMemo<GridColDef<Row>[]>(
+  const columns = useMemo<GridColDef<Row>[]>(
     () => [
       { field: "name", headerName: "نام", type: "string" },
       { field: "age", headerName: "سن", type: "number" },
@@ -96,12 +102,16 @@ export default function DataGridRTL() {
             label="Delete"
             onClick={deleteUser(params.id)}
           />,
-          <GridActionsCellItem
-            icon={<SecurityIcon />}
-            label="تغییر تابعیت"
-            onClick={toggleCitizenship(params.id)}
-            showInMenu
-          />,
+          ...(isAuth(authRoles.admin)
+            ? [
+                <GridActionsCellItem
+                  icon={<SecurityIcon />}
+                  label="تغییر تابعیت"
+                  onClick={toggleCitizenship(params.id)}
+                  showInMenu
+                />,
+              ]
+            : []),
           <GridActionsCellItem
             icon={<FileCopyIcon />}
             label="رونویسی کاربر"
@@ -111,7 +121,7 @@ export default function DataGridRTL() {
         ],
       },
     ],
-    [deleteUser, toggleCitizenship, duplicateUser]
+    [deleteUser, toggleCitizenship, duplicateUser, isAuth(authRoles.admin)]
   );
 
   return <Table rows={rows} columns={columns} />;

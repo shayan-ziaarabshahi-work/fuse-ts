@@ -1,14 +1,15 @@
-import themesConfig from 'app/configs/themesConfig';
-import i18n from '../../i18n/config';
-import { FuseSettingsConfig } from '@types-fuse/setting';
+import themesConfig from "app/configs/themesConfig";
+import i18n from "../../i18n/config";
+import { FuseSettingsConfig } from "@types-fuse/setting";
+import { authRoles } from "../auth";
 
 const settingsConfig: FuseSettingsConfig = {
   layout: {
-    style: 'layout1',
+    style: "layout1",
     config: {}, // checkout default layout configs at app/theme-layouts for example  app/theme-layouts/layout1/Layout1Config.js
   },
   customScrollbars: true,
-  direction: i18n.dir(i18n.options.lng) || 'ltr', // rtl, ltr
+  direction: i18n.dir(i18n.options.lng) || "ltr", // rtl, ltr
   theme: {
     main: themesConfig.default,
     navbar: themesConfig.defaultDark,
@@ -20,11 +21,11 @@ const settingsConfig: FuseSettingsConfig = {
    To make whole app accessible without authorization by default set defaultAuth: null
    *** The individual route configs which has auth option won't be overridden.
    */
-  defaultAuth: ['admin'],
+  defaultAuth: authRoles.admin,
   /*
     Default redirect url for the logged-in user,
    */
-  loginRedirectUrl: '/',
+  loginRedirectUrl: "/",
 };
 
 export default settingsConfig;
