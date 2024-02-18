@@ -15,23 +15,23 @@ const cacheRtl = createCache({
 const columns: GridColDef[] = [
   {
     field: "id",
-    headerName: "تعريف",
+    headerName: "شناسه",
     width: 150,
   },
   {
     field: "name",
-    headerName: "اسم",
+    headerName: "نام",
     width: 150,
   },
   {
     field: "age",
-    headerName: "عمر",
-    valueGetter: (params) => `${params.value} سنوات`,
+    headerName: "سن",
+    valueGetter: (params) => `${params.value} سن`,
     width: 150,
   },
   {
     field: "occupation",
-    headerName: "المهنة",
+    headerName: "شغل",
     width: 150,
   },
   {
@@ -42,11 +42,7 @@ const columns: GridColDef[] = [
 ];
 
 const rows = [
-  { id: 1, name: "سارہ", age: 35, occupation: "معلم", gender: "أنثى" },
-  { id: 2, name: "زید", age: 42, occupation: "مهندس", gender: "ذكر" },
-  { id: 3, name: "علی", age: 33, occupation: "محاسب", gender: "ذكر" },
-  { id: 4, name: "فاطمہ", age: 25, occupation: "معلم", gender: "أنثى" },
-  { id: 5, name: "ایندریو", age: 65, occupation: "مهندس", gender: "ذكر" },
+  { id: 1, name: "شایان", age: 28, occupation: "برنامه نویس", gender: "مرد" },
 ];
 
 export default function DataGridRTL() {
