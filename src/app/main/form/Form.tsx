@@ -45,7 +45,6 @@ function HomePage() {
             <Grid item xs={12} className="overflow-scroll">
               <Table
                 columns={prepareColumnsData(clientResourcesGridColumn)}
-                data={prepareRowsData(clientResourcesData)}
                 rows={prepareRowsData(clientResourcesData)}
                 pageSize={5}
               />
