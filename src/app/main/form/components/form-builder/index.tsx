@@ -4,6 +4,7 @@ import FormSelectBox from 'app/shared-components/form-fields/FormSelectBox';
 import FormDatePicker from 'app/shared-components/form-fields/FormDatePicker';
 import FormCkeckbox from 'app/shared-components/form-fields/FormCkeckbox';
 import { Grid, Box } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 
 
 export interface FormFieldInterface {
@@ -17,15 +18,16 @@ export interface FormFieldInterface {
 
 function FormBuilder({ fieldsSchema, onSubmit, buttonText }: any) {
 
-    const { control, handleSubmit } = useForm<FormFieldInterface>({
-        defaultValues: {
+    let mappedFieldsSchema = fieldsSchema.map((field: any) => ({ [field.name]: field.defaultValue }));
+    let defaultValues = Object.assign({}, ...mappedFieldsSchema);
 
-        },
+    const { control, handleSubmit } = useForm<FormFieldInterface>({
+        defaultValues
     });
 
     return (
-        <Box sx={(theme: any) => ({ backgroundColor: theme.palette.common.white })} className='px-20 rounded-lg'>
-            <Grid container spacing={2} className="my-10">
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <Grid container spacing={2} sx={(theme: any) => ({ backgroundColor: theme.palette.common.white })} className="my-10 px-20 rounded-lg">
                 {
                     fieldsSchema.map((field: any, index: any) => {
                         switch (field.type) {
@@ -54,13 +56,17 @@ function FormBuilder({ fieldsSchema, onSubmit, buttonText }: any) {
                                     </Grid>
                                 )
                             default:
-                            // code block
+                            // code block                            
                         }
-
                     })
                 }
+                <Grid item xs={12} className="mb-10">
+                    <LoadingButton variant="contained">
+                        {buttonText}
+                    </LoadingButton>
+                </Grid>
             </Grid>
-        </Box>
+        </form>
     )
 }
 
