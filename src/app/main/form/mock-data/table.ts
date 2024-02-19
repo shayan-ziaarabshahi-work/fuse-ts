@@ -1,12 +1,23 @@
 import { nanoid } from "nanoid";
 
-// export const clientResourcesGridColumn: any = {
-//   url: "/group/getGridColumn",
-//   columns: [
-//     { field: "enabled", headerName: "فعال ", width: 150 },
-//     { field: "description", headerName: "توصیف", width: 150 },
-//   ],
-// };
+export const tableActions: any[] = [
+  { type: "new", title: "جدید", icon: "😀" },
+  {
+    type: "removeSelected",
+    title: "حذف موارد انتخابی",
+    icon: "😀",
+  },
+  { type: "exportExcel", title: "خروجی اکسل", icon: "😀" },
+  { type: "exportPDF", title: "خروجی پی دی اف", icon: "😀" },
+  {
+    type: "customizeColumns",
+    title: "سفارشی سازی ستون ها",
+    icon: "😀",
+  },
+  { type: "advancedSearch", title: "جستجوی پیشرفته", icon: "😀" },
+  { type: "filter", title: "نمایش فیلتر ", icon: "😀" },
+  { type: "reset", title: "بازیابی", icon: "😀" },
+];
 
 export const clientResourcesGridColumn: any = {
   url: "/group/getGridColumn",

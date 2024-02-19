@@ -1,14 +1,16 @@
 import { styled } from "@mui/material/styles";
 import FusePageSimple from "@fuse/core/FusePageSimple";
 import { Box } from "@mui/system";
-import { Typography } from "@mui/material";
-import Table from "./components/Table";
+import { Button, Grid, Typography } from "@mui/material";
+import Table from "./components/table";
+import TableTopActions from "./components/table/top-actions";
+import { prepareColumnsData, prepareRowsData } from "./utils/table";
 // fake data
 import {
   clientResourcesGridColumn,
   clientResourcesData,
+  tableActions,
 } from "./mock-data/table";
-import { prepareColumnsData, prepareRowsData } from "./utils/table";
 
 function HomePage() {
   // page style
@@ -20,7 +22,9 @@ function HomePage() {
     "& .FusePageSimple-sidebarContent": {},
   }));
 
-  //
+  const handleOnClick = (type: any) => {
+    console.log(type);
+  };
 
   return (
     <>
@@ -33,12 +37,18 @@ function HomePage() {
           </Box>
         }
         content={
-          <Box className="p-24 w-full">
-            <Table
-              columns={prepareColumnsData(clientResourcesGridColumn)}
-              rows={prepareRowsData(clientResourcesData)}
-            />
-          </Box>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TableTopActions tableActions={tableActions} />
+            </Grid>
+            <Grid item xs={12} className="overflow-scroll">
+              <Table
+                columns={prepareColumnsData(clientResourcesGridColumn)}
+                rows={prepareRowsData(clientResourcesData)}
+                pageSize={5}
+              />
+            </Grid>
+          </Grid>
         }
         scroll="content"
       />

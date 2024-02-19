@@ -1,6 +1,6 @@
-import View from "./../components/actions/view";
-import Edit from "./../components/actions/edit";
-import Delete from "./../components/actions/delete";
+import View from "./../components/table/row-actions/view";
+import Edit from "./../components/table/row-actions/edit";
+import Delete from "./../components/table/row-actions/delete";
 
 
 export const prepareColumnsData = (data: any) => {

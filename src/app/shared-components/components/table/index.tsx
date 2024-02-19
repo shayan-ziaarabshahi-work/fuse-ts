@@ -13,7 +13,7 @@ const cacheRtl = createCache({
   stylisPlugins: [prefixer, rtlPlugin],
 });
 
-export default function DataGridRTL({ columns, rows, pageSize }: any) {
+export default function DataGridRTL({ columns, rows, ...res }: any) {
   /* theme */
   const existingTheme = useTheme();
   const theme = React.useMemo(
@@ -29,7 +29,7 @@ export default function DataGridRTL({ columns, rows, pageSize }: any) {
       <ThemeProvider theme={theme}>
         <Box
           dir="rtl"
-          style={{ height: 400, width: "100%" }}
+          style={{ height: 375, width: "100%" }}
           sx={(theme) => ({ bgcolor: theme.palette.common.white })}
           className="rounded-16"
         >
@@ -41,7 +41,7 @@ export default function DataGridRTL({ columns, rows, pageSize }: any) {
                 justifyContent: "start",
               },
             }}
-            pageSize={pageSize}
+            {...res}
           />
         </Box>
       </ThemeProvider>
