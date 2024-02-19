@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import FusePageSimple from "@fuse/core/FusePageSimple";
 import { Box } from "@mui/system";
 import { Button, Grid, Typography } from "@mui/material";
-import Table from "./components/table";
+import Table from "app/shared-components/components/table";
 import TableTopActions from "./components/table/top-actions";
 import { prepareColumnsData, prepareRowsData } from "./utils/table";
 // fake data
