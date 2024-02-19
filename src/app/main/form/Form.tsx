@@ -1,4 +1,3 @@
-import Table from "./components/Table";
 import { styled } from "@mui/material/styles";
 import FusePageSimple from "@fuse/core/FusePageSimple";
 import { Box } from "@mui/system";
@@ -18,12 +17,12 @@ function HomePage() {
       <Root
         header={
           <Box className="p-24">
-            <Typography variant="h5" component="h1">محرمانه</Typography>
+            <Typography variant="h5" component="h1">فرم</Typography>
           </Box>
         }
         content={
           <Box className="p-24 w-full">
-            <Table />
+            
           </Box>
         }
         scroll="content"

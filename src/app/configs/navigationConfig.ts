@@ -15,11 +15,10 @@ const navigationConfig: NavigationConfig[] = [
     // translate: 'home',
   },
   {
-    id: 'secret',
-    title: 'محرمانه',
+    id: 'form',
+    title: 'فرم',
     type: 'item',
-    url: 'secret',
-    auth: authRoles.staff
+    url: 'form',
   },
 ];
 
