@@ -14,6 +14,7 @@ function FormDatePicker<T extends FieldValues>({
   restOnChange,
   icon = <HiOutlineCalendar />,
   toolbarTitle,
+  size="medium",
   ...props
 }: RhfDatePickerProps<T>) {
   const {
@@ -76,6 +77,7 @@ function FormDatePicker<T extends FieldValues>({
         return (
           <TextField
             {...params}
+            size={size}
             fullWidth
             variant="outlined"
             error={!!error}

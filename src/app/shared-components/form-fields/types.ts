@@ -9,6 +9,7 @@ type TDatePickerForm = {
   toolbarTitle?: string;
   icon?: ReactNode;
   dateFormat?: string;
+  size?:string
 };
 
 export type RhfDatePickerProps<T extends FieldValues> = Omit<
