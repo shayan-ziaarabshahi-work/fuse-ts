@@ -13,7 +13,7 @@ const cacheRtl = createCache({
   stylisPlugins: [prefixer, rtlPlugin],
 });
 
-export default function DataGridRTL({ columns, rows }: any) {
+export default function DataGridRTL({ columns, rows, pageSize }: any) {
   /* theme */
   const existingTheme = useTheme();
   const theme = React.useMemo(
@@ -33,7 +33,16 @@ export default function DataGridRTL({ columns, rows }: any) {
           sx={(theme) => ({ bgcolor: theme.palette.common.white })}
           className="rounded-16"
         >
-          <DataGrid rows={rows} columns={columns} />
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            sx={{
+              "& .MuiDataGrid-cell--textCenter": {
+                justifyContent: "start",
+              },
+            }}
+            pageSize={pageSize}
+          />
         </Box>
       </ThemeProvider>
     </CacheProvider>
