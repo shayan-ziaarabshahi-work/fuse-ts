@@ -6,6 +6,8 @@ import modal from './modalSlice';
 import lightbox from './lightboxSlice';
 import stackNavigation from './stackNavigationSlice';
 
-const reducers = { fuse, i18n, user, alertDialog, modal, lightbox, stackNavigation };
+import getForms from './formSlice'
+
+const reducers = { fuse, i18n, user, getForms, alertDialog, modal, lightbox, stackNavigation };
 
 export default reducers;

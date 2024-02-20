@@ -21,14 +21,15 @@ import { useFuseSelector } from './utils/hooks/useStore';
 import ErrorBoundary from './shared-components/error-boundary';
 import CKEditorStyle from './shared-components/components/ck-editor/CKEditorStyle';
 import { selectCurrentLanguageDirection } from './store/i18nSlice';
+import axios from 'axios';
 
 // import axios from 'axios';
 /**
  * Axios HTTP Request defaults
  */
-// axios.defaults.baseURL = "";
-// axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-// axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded';
+axios.defaults.baseURL = "" ;
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers.common['Content-Type'] = 'application/x-www-form-urlencoded';
 
 const emotionCacheOptions = {
   rtl: {

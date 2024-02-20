@@ -9,6 +9,9 @@ import FormBuilder from "./components/form-builder";
 // fake data
 import { clientResourcesGridColumn, clientResourcesData, tableActions } from "./mock-data/table";
 import { fieldsSchema } from './mock-data/form'
+import { useEffect } from "react";
+import { useFuseDispatch } from "src/app/utils/hooks/useStore";
+import { getForms } from "app/store/formSlice";
 
 function HomePage() {
   // page style
@@ -23,6 +26,16 @@ function HomePage() {
   const onSubmit = () => {
 
   }
+
+  const dispatch = useFuseDispatch()
+
+  useEffect(() => {
+    const promise = dispatch(getForms({ page: 1 }));
+    console.log(promise)
+    return () => {
+      promise.abort();
+    };
+  }, [dispatch]);
 
   return (
     <>

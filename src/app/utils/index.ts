@@ -24,3 +24,16 @@ export const calculateRatioPercent = (aspectRatio: string) => {
   const [ratioX, ratioY] = aspectRatio.split('/');
   return (+ratioY * 100) / +ratioX;
 };
+
+
+export function asyncThunkRejection(meta: {
+  arg: any;
+  requestId: string;
+  requestStatus: string;
+  aborted: boolean;
+  condition: boolean;
+  rejectedWithValue?: boolean;
+}): Error | null {
+  if (meta.aborted || meta.condition) return null;
+  return new Error();
+}
